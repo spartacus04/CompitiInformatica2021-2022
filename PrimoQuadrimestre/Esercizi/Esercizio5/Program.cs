@@ -28,7 +28,7 @@ namespace Esercizio5
                 return;
             }
 
-            Console.WriteLine("Il concorrente si trova alla posizione " + (index + 1));
+            Console.WriteLine("Il concorrente " + nameToFind + " si trova alla posizione " + (index + 1));
             Console.ReadKey();
         }
 
