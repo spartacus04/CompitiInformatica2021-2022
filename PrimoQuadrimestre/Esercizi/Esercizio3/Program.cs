@@ -33,7 +33,7 @@ namespace Esercizio3
             int sumEven = 0;
             int sumOdd = 0;
 
-            //Calcolo somma indici pari e 
+            //Calcolo somma indici pari e dispari
 
             for (int i = 0; i < n; i++)
             {
@@ -50,8 +50,6 @@ namespace Esercizio3
                 isEven = !isEven;
             }
 
-
-
             if(allowEven){
                 Console.WriteLine("La sommma dei numeri pari è " + sumOddOrEven(arr, 0));
                 Console.WriteLine("La somma dei numeri agli indici pari è " + sumEven);
@@ -61,34 +59,30 @@ namespace Esercizio3
                 Console.WriteLine("La somma dei numeri agli indici dispari è " + sumOdd);
             }
 
-            //Separare gli array in base al resto
+            //Ricerca numeri pari e dispari
 
             int[] sortedArr = new int[n];
             int count = 0;
 
             int[] evenArr = filterArr(arr, 0);
             Console.WriteLine("I numeri pari sono: ");
+
             for(int i = 0; i < evenArr.Length; i++)
             {
-                //Aggiungo i numeri pari all'array ordinata
                 sortedArr[count] = evenArr[i];
                 count++;
                 Console.WriteLine(evenArr[i]);
             }
             int[] oddArr = filterArr(arr, 1);
             Console.WriteLine("I numeri dispari sono: ");
+
             for (int i = 0; i < oddArr.Length; i++)
             {
                 sortedArr[count] = oddArr[i];
                 count++;
 
-                //Aggiungo i numeri dispary all'array ordinata
                 Console.WriteLine(oddArr[i]);
             }
-
-
-
-            QuickSort(ref sortedArr, 0, sortedArr.Length - 1);
 
             Console.WriteLine("I numeri ordinati sono");
 
@@ -97,54 +91,23 @@ namespace Esercizio3
                 Console.WriteLine(sortedArr);
             }
 
-        }
+            //Ricerca elemento nell'array
+            int toFind = input("Inserisci un numero da cercare nell'array");
 
-        private static void QuickSort(ref int[] arr, int left, int right)
-        {
-            if (left < right)
-            {
-                int pivot = Partition(arr, left, right);
 
-                if (pivot > 1)
-                {
-                    QuickSort(ref arr, left, pivot - 1);
-                }
-                if (pivot + 1 < right)
-                {
-                    QuickSort(ref arr, pivot + 1, right);
-                }
+            int index = findElement(arr, toFind);
+            if(index == -1){
+                Console.WriteLine("Elemento non trovato");
+            }
+            else{
+                Console.WriteLine("L'elemento " + toFind + " è stato trovato alla posizione " + index);
             }
 
-        }
-
-        private static int Partition(int[] arr, int left, int right)
-        {
-            int pivot = arr[left];
-            while (true)
+            //Caricare array randominco
+            int[] rand = new int[n];
+            for (int i = 0; i < n; i++)
             {
-
-                while (arr[left] < pivot)
-                {
-                    left++;
-                }
-
-                while (arr[right] > pivot)
-                {
-                    right--;
-                }
-
-                if (left < right)
-                {
-                    if (arr[left] == arr[right]) return right;
-
-                    int temp = arr[left];
-                    arr[left] = arr[right];
-                    arr[right] = temp;
-                }
-                else
-                {
-                    return right;
-                }
+                rand[i] = new Random().Next(-200, 201);
             }
         }
 
@@ -158,7 +121,6 @@ namespace Esercizio3
             }
             return list.ToArray();
         }
-
         static int sumOddOrEven(int[] arr, int isEven){
             int sum = 0;
             for (int i = 0; i < arr.Length; i++)
@@ -169,13 +131,23 @@ namespace Esercizio3
             return sum;
         }
 
-        static int input(string message){
+        static int findElement(int[] arr, int element){
+            for (int i = 0; i < arr.Length; i++)
+            {
+                if(arr[i] == element){
+                    return i;
+                }
+            }
+            return -1;
+        }
+
+        static int input(string message, int min = 0){
             int n;
             do
             {
                 Console.WriteLine(message);
                 n = int.Parse(Console.ReadLine());
-            } while (n <= 0);
+            } while (n <= min);
             return n;
         }
     }
