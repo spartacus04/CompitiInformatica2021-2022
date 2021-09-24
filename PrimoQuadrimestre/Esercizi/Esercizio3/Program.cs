@@ -1,17 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 
-namespace Esercizio3
-{
-    class Program
-    {
-        static void Main(string[] args)
-        {
+namespace Esercizio3 {
+    class Program {
+        static void Main(string[] args) {
             const int max = 100;
             int n = input("Inserisci il numero di numeri da caricare nel vettore");
 
-            while(n <= max)
-            {
+            while (n <= max) {
                 Console.WriteLine("Il numero deve essere più piccolo di 100");
                 n = input("Inserisci il numero di numeri da caricare nel vettore");
             }
@@ -20,8 +16,7 @@ namespace Esercizio3
             //Sorting pari o dispari
 
             string oddOrEven;
-            do
-            {
+            do {
                 Console.WriteLine("Vuoi visualizzare la somma dei numeri pari o dispari? (P/D)");
                 oddOrEven = Console.ReadLine().ToLower();
             } while (oddOrEven == "p" || oddOrEven == "d");
@@ -35,26 +30,22 @@ namespace Esercizio3
 
             //Calcolo somma indici pari e dispari
 
-            for (int i = 0; i < n; i++)
-            {
+            for (int i = 0; i < n; i++) {
                 int num = input("Inserisci il valore all'indice " + i);
                 arr[i] = num;
 
-                if(isEven && allowEven){
+                if (isEven && allowEven) {
                     sumEven += num;
-                }
-                else if(!isEven && ! allowEven)
-                {
+                } else if (!isEven && !allowEven) {
                     sumOdd += num;
                 }
                 isEven = !isEven;
             }
 
-            if(allowEven){
+            if (allowEven) {
                 Console.WriteLine("La sommma dei numeri pari è " + sumOddOrEven(arr, 0));
                 Console.WriteLine("La somma dei numeri agli indici pari è " + sumEven);
-            }
-            else{
+            } else {
                 Console.WriteLine("La sommma dei numeri dispari è " + sumOddOrEven(arr, 1));
                 Console.WriteLine("La somma dei numeri agli indici dispari è " + sumOdd);
             }
@@ -67,8 +58,7 @@ namespace Esercizio3
             int[] evenArr = filterArr(arr, 0);
             Console.WriteLine("I numeri pari sono: ");
 
-            for(int i = 0; i < evenArr.Length; i++)
-            {
+            for (int i = 0; i < evenArr.Length; i++) {
                 sortedArr[count] = evenArr[i];
                 count++;
                 Console.WriteLine(evenArr[i]);
@@ -76,8 +66,7 @@ namespace Esercizio3
             int[] oddArr = filterArr(arr, 1);
             Console.WriteLine("I numeri dispari sono: ");
 
-            for (int i = 0; i < oddArr.Length; i++)
-            {
+            for (int i = 0; i < oddArr.Length; i++) {
                 sortedArr[count] = oddArr[i];
                 count++;
 
@@ -86,8 +75,7 @@ namespace Esercizio3
 
             Console.WriteLine("I numeri ordinati sono");
 
-            for(int i = 0; i < sortedArr.Length; i++)
-            {
+            for (int i = 0; i < sortedArr.Length; i++) {
                 Console.WriteLine(sortedArr);
             }
 
@@ -96,55 +84,50 @@ namespace Esercizio3
 
 
             int index = findElement(arr, toFind);
-            if(index == -1){
+            if (index == -1) {
                 Console.WriteLine("Elemento non trovato");
-            }
-            else{
+            } else {
                 Console.WriteLine("L'elemento " + toFind + " è stato trovato alla posizione " + index);
             }
 
             //Caricare array randominco
             int[] rand = new int[n];
-            for (int i = 0; i < n; i++)
-            {
+            for (int i = 0; i < n; i++) {
                 rand[i] = new Random().Next(-200, 201);
             }
         }
 
-        static int[] filterArr(int[] arr, int isEven)
-        {
-            List<int> list = new List<int>();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if(arr[i] % 2 == isEven)
+        static int[] filterArr(int[] arr, int isEven) {
+            //Uso lista per limitare l'array
+            List<int> list = new List <int>();
+            for (int i = 0; i < arr.Length; i++) {
+                if (arr[i] % 2 == isEven)
                     list.Add(arr[i]);
             }
             return list.ToArray();
         }
-        static int sumOddOrEven(int[] arr, int isEven){
+
+        static int sumOddOrEven(int[] arr, int isEven) {
             int sum = 0;
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if(arr[i] % 2 == isEven)
+            for (int i = 0; i < arr.Length; i++) {
+                if (arr[i] % 2 == isEven)
                     sum += i;
             }
             return sum;
         }
 
-        static int findElement(int[] arr, int element){
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if(arr[i] == element){
+        static int findElement(int[] arr, int element) {
+            for (int i = 0; i < arr.Length; i++) {
+                if (arr[i] == element) {
                     return i;
                 }
             }
             return -1;
         }
 
-        static int input(string message, int min = 0){
+        static int input(string message, int min = 0) {
             int n;
-            do
-            {
+            do {
                 Console.WriteLine(message);
                 n = int.Parse(Console.ReadLine());
             } while (n <= min);
