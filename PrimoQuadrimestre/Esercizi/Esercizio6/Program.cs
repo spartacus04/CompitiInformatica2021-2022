@@ -83,9 +83,11 @@ namespace Esercizio6
         }
 
         static void magazzino(char[] categoria, double[] prezzo, int elementi) {
+
             double[] magazzini = new double[4];
             for (int i = 0; i < elementi; i++)
             {
+                
                 switch(categoria[i]) {
                     case 'A':
                         magazzini[0] += prezzo[i];
