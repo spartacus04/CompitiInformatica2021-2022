@@ -124,7 +124,7 @@ namespace Esercizio10 {
             }
             return -1;
         }
-        
+
         static void printHighestCashoutAbroad(film[] films, string nationality) {
             film HighestFilm = new film();
             HighestFilm = films[0];
