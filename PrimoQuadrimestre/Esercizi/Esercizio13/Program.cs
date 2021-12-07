@@ -15,16 +15,20 @@ namespace Esercizio13
             }
 
             public string decode() {
-                // Bubblesort name e code
-                for (int i = 0; i < name.Length - 1; i++) {
-                    if (name[i] > name[i + 1]) {
-                        char temp = name[i];
-                        name[i] = name[i + 1];
-                        name[i + 1] = temp;
+                for (int i = 0; i < code.Length; i++)
+                {
+                    for (int j = 0; j < code.Length - 1; j++)
+                    {
+                        if(code[j] > code[j + 1]) {
+                            int temp = code[j];
+                            code[j] = code[j + 1];
+                            code[j + 1] = temp;
 
-                        int temp2 = code[i];
-                        code[i] = code[i + 1];
-                        code[i + 1] = temp2;
+                            char temp2 = name[j];
+                            name[j] = name[j + 1];
+                            name[j + 1] = temp2;
+
+                        }
                     }
                 }
 
@@ -54,7 +58,7 @@ namespace Esercizio13
                 Console.WriteLine("Il nome dell'agente è: " + agent.decode());
 
                 Console.WriteLine("Vuoi continuare? (y/n)");
-            } while (Console.ReadLine() == "y" || Console.ReadLine() == "Y");
+            } while (Console.ReadLine() == "y");
         }
     }
 }
