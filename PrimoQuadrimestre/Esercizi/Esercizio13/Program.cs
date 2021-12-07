@@ -43,7 +43,7 @@ namespace Esercizio13
                 string name = Console.ReadLine();
 
                 Console.WriteLine("Inserisci la chiave dell'agente (separato da spazi)");
-                string code = Console.ReadLine();
+                string code = Console.ReadLine().Trim();
 
                 string[] codes = code.Split(' ', StringSplitOptions.TrimEntries);
 
