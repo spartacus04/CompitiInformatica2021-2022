@@ -20,6 +20,7 @@ namespace Esercizio13
                     for (int j = 0; j < code.Length - 1; j++)
                     {
                         if(code[j] > code[j + 1]) {
+
                             int temp = code[j];
                             code[j] = code[j + 1];
                             code[j + 1] = temp;
@@ -35,6 +36,7 @@ namespace Esercizio13
                 return new string(name);  
             }
         }
+        
         static void Main(string[] args)
         {
             do
