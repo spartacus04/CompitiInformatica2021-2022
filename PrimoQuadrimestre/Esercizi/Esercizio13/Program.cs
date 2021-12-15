@@ -1,6 +1,5 @@
 ﻿using System;
 
-
 namespace Esercizio13
 {
     class Program
@@ -36,11 +35,10 @@ namespace Esercizio13
                 return new string(name);  
             }
         }
-        
+
         static void Main(string[] args)
         {
-            do
-            {
+            do {
                 Console.WriteLine("Inserisci il nome in codice dell'agente");
                 string name = Console.ReadLine();
 
