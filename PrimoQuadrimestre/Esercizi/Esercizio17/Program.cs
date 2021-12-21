@@ -45,7 +45,7 @@ namespace Esercizio17
                     {
                         Console.WriteLine("Inserisci il punteggio " + (j + 1) + " del partecipante: ");
                         participants[i].scores[j] = int.Parse(Console.ReadLine());
-                    } while (participants[i].scores[j] < 0);   
+                    } while (participants[i].scores[j] < 0 || participants[i].scores[j] > 10);   
                 }
             }
 
@@ -99,6 +99,11 @@ namespace Esercizio17
                     sum += participants[i].age;
                     count++;
                 }
+            }
+
+            if(count == 0) {
+                Console.WriteLine("Non ho trovato partecipanti");
+                return;
             }
 
             Console.WriteLine("Età media: " + (double)sum / count);
@@ -158,7 +163,7 @@ namespace Esercizio17
 
             for (int i = 0; i < participants.Length; i++)
             {
-                if (participants[i].height - min > delta)
+                if (Math.Abs(participants[i].height - min) > delta)
                 {
                     count++;
                 }
@@ -176,9 +181,8 @@ namespace Esercizio17
                     sum += participants[i].scores[j];
                 }
 
-                Console.WriteLine("Punteggio medio partecipante " + (i + 1) + ": " + (double)sum / (participants.Length * 6));
+                Console.WriteLine("Punteggio medio partecipante " + (i + 1) + ": " + (double)sum / 6);
             }
-
         }
     }
 }
