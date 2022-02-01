@@ -187,6 +187,7 @@ namespace Esercizio1
 				Console.WriteLine("Inserisci il nuovo voto dello studente");
 				grade = int.Parse(Console.ReadLine());
 			} while (grade < 18 || grade > 31);
+			student.grades[student.sufficientExams - 1] = grade;
 		}
 
 		static void removeFinishedStudents(ref Student[] students) {
