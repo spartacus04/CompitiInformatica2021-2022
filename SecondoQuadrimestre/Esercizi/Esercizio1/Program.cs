@@ -77,11 +77,7 @@ namespace Esercizio1
 						Console.WriteLine("Inserisci il numero dello studente ");
 						int index2 = int.Parse(Console.ReadLine());
 
-						if (index2 < 1 || index2 > n)
-							Console.WriteLine("Numero non valido");
-						else
-							Console.WriteLine("L'ultimo voto preso dallo studente numero " + index2 + " è: " + lastGrade(students[index2 - 1]));
-
+						lastGrade(students[index2 - 1]);
 						break;
 					case 8:
 						removeFinishedStudents(ref students);
@@ -182,9 +178,15 @@ namespace Esercizio1
 			return count;
 		}
 
-		static string lastGrade(Student student) {
-			if(student.grades[student.sufficientExams - 1] == 31) return "30 e lode";
-			else return student.grades[student.sufficientExams - 1].ToString();
+		static void lastGrade(Student student) {
+			if(student.sufficientExams == 25) return;
+			student.sufficientExams++;
+			int grade;
+			do
+			{
+				Console.WriteLine("Inserisci il nuovo voto dello studente");
+				grade = int.Parse(Console.ReadLine());
+			} while (grade < 18 || grade > 31);
 		}
 
 		static void removeFinishedStudents(ref Student[] students) {
