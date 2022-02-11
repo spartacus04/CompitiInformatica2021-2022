@@ -13,7 +13,7 @@ namespace Esercizio3
 				type = char.Parse(Console.ReadLine());
 			} while (type != 'I' && type != 'i' && type != 'E' && type != 'e' && type != 'S' && type != 's');
 
-			// Classe dichiarata in 
+			// Classe dichiarata in https://github.com/spartacus04/CompitiInformatica2021-2022/blob/master/SecondoQuadrimestre/Esercizi/Esercizio3/triangolo.cs
 			Triangle triangle = null;
 
 			switch(type) {
