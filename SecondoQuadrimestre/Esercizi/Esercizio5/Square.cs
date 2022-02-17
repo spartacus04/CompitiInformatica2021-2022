@@ -14,22 +14,22 @@ class Square  {
     }
 
     public double getDiagonal() {
-        return diagonal;
+        return Math.Round(diagonal, 2);
     }
 
     public double getSide() {
-        return side;
+        return Math.Round(side, 2);
     }
 
     public double getArea() {
-        return area;
+        return Math.Round(area, 2);
     }
 
     public double getPerimeter() {
-        return perimeter;
+        return Math.Round(perimeter, 2);
     }
 
     public string output() {
-	    return "Il quadrato dalla diagonale " + diagonal + " ha lato di lunghezza " + Math.Round(side, 2) + " e quindi area di " + Math.Round(area, 2) + " e perimetro di " + Math.Round(perimeter, 2) + ".";
+	    return "Il quadrato dalla diagonale " + getDiagonal() + " ha lato di lunghezza " + getSide() + " e quindi area di " + getArea() + " e perimetro di " + getPerimeter() + ".";
     }
 }
