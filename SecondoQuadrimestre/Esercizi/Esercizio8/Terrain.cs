@@ -22,7 +22,7 @@ class Terrain {
 		set { buildablePercentage = value < 0 || value > 100 ? 60 : value; }
 	}
 
-	public double AnnuityPerSQuareMeter {
+	public double AnnuityPerSquareMeter {
 		get { return annuityPerSquareMeter; }
 		set { annuityPerSquareMeter = value < 0 ? 10 : value; }
 	}
@@ -31,10 +31,10 @@ class Terrain {
 
 	#region constructors
 	public Terrain(string id, int extension, int buildablePercentage, double annuity) {
-		this.id = id;
-		this.extension = extension;
-		this.buildablePercentage = buildablePercentage;
-		this.annuityPerSquareMeter = annuity;
+		this.Id = id;
+		this.Extension = extension;
+		this.BuildablePercentage = buildablePercentage;
+		this.AnnuityPerSquareMeter = annuity;
 	}
 
 	#endregion
